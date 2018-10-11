@@ -22,7 +22,7 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
   }
 
-  public order(): void {
+  public browse(): void {
     this.message = '';
     this.http.get(`${this.API_URL}/public`)
       .subscribe(
@@ -31,7 +31,7 @@ export class OrderComponent implements OnInit {
       );
   }
 
-  public securedorder(): void {
+  public secureOrder(): void {
     this.message = '';
     this.http.get(`${this.API_URL}/private`, {
       headers: new HttpHeaders()

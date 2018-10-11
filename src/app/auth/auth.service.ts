@@ -70,6 +70,8 @@ export class AuthService {
   }
 
   public logout(): void {
+    console.log('ENTER: logout() ');
+
     // Remove tokens and expiry time from localStorage
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
@@ -78,9 +80,10 @@ export class AuthService {
 
     localStorage.clear(); // ADDED: Paulvo
     // Go back to the home route
-    console.log('isAuth in logout: ' + this.isAuthenticated() );
+    console.log('-->> isAuth in logout: ' + this.isAuthenticated() );
+    console.log('EXIT: logout() ');
 
-    this.router.navigate(['/home']); // paulvo: added home
+    this.router.navigate(['/']); // paulvo: added home
   }
 
   public isAuthenticated(): boolean {
@@ -88,16 +91,17 @@ export class AuthService {
     // access token's expiry time
     console.log('ENTER: isAuthenticated() ');
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
+    console.log('-->expireAt from localStorage prior to check: ' + expiresAt);
     let isAuth = false;
     isAuth = new Date().getTime() < expiresAt;
-    console.log('EXIT: isAuthenticated() --->isAuth: ' + isAuth);
-    //alert('isAuth: ' + isAuth);
+    console.log(' --->isAuth post check: ' + isAuth);
+    // alert('isAuth: ' + isAuth);
+    console.log('EXIT: isAuthenticated()');
     return isAuth;
     // return (new Date().getTime() < expiresAt);
 
 
   }
-
 
   public isEmailVerified() : boolean { // TODO: we should check this on the auth profile
     return localStorage.getItem('emailVerified') == 'true' ? true : false;
@@ -107,7 +111,7 @@ export class AuthService {
       localStorage.setItem('emailVerified', 'true');
   }
 
-  /*public returnAuthResult(): Object {
+  /* public returnAuthResult(): Object {
     console.log ('ENTER: returnAuthResult()');
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
@@ -147,7 +151,8 @@ export class AuthService {
        // return false;
       } else {
         console.log ('SUCCESS: get email verification status on userprofile..' + JSON.parse(user.email_verified));
-        if (user.email_verified) { // paulvo: added. Check first for it's existence
+        if (user.email_verified) { // paulvo: added. Check we can read
+          console.log ('--> user.email_verified' + user.email_verified);
           localStorage.setItem('emailVerified', user.email_verified);
         } else {
           localStorage.setItem('emailVerified', 'false');

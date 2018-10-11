@@ -37,14 +37,6 @@
         (click)="auth.logout()">
           Log Out
       </button>
-
-      <button
-      class="btn btn-warning btn-margin"
-      *ngIf="auth.isAuthenticated() && !auth.isEmailVerified()"
-      (click)="auth.verifyEmail()">
-      Click here to Verify Email!
-    </button>
-
     </div>
   </div>
 </nav>

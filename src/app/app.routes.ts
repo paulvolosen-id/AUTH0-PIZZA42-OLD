@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PingComponent } from './ping/ping.component';
 import { OrderComponent } from './order/order.component';
 import { CallbackComponent } from './callback/callback.component';
 
