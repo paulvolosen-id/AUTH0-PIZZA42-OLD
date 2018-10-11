@@ -1,6 +1,6 @@
 # Auth0 Angular Pizza42 application - Paul Volosen - 
 
-This projects implements a 'Pizza4' project. The sample uses AUTH0 and the Angular CLI. The app is configured to connect to paulvoax.auth0.com
+This projects implements a 'Pizza42' project. The sample uses AUTH0 and the Angular CLI. The app is configured to connect to paulvoax.auth0.com
 
 ## Getting Started
 
