@@ -1,4 +1,4 @@
-# Auth0 Angular Calling an API
+# Auth0 Angular Implementing Pizza42
 
 This sample demonstrates how to make secure calls to an API after authenticating a user with Auth0. The calls to the API are made with the user's `access_token`. The sample uses the Angular CLI.
 
