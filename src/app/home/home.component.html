@@ -1,0 +1,12 @@
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>
+
+<h4 *ngIf="auth.isAuthenticated() && auth.isEmailVerified()">
+    You are logged in and email verified! You can now <a routerLink="/order"> place an order</a>.
+</h4>
+
+<h4 *ngIf="auth.isAuthenticated() && !auth.isEmailVerified()">
+    Your email is not verified! Please verify <a (click)="auth.verifyEmail()"> </a>place an order.
+</h4>
+
